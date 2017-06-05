@@ -36,6 +36,38 @@ namespace MentorMenteeWebApi.Controllers
             return val;
            // return new string[] { "value1", "value2" };
         }
+        // GET api/values
+        [ActionName("GetMentors")]
+        public IEnumerable<string> GetMentors( string Category)
+        {
+            SqlConnection sqlcon = new SqlConnection(sqlstring);
+            sqlcon.Open();
+            List<string> val = new List<string>();
+            string str = string.Format("SELECT username " +
+                                                    " from  TBlUser U" +
+                                                    " JOIN TBLMentor M" +
+                                                    " ON U.id = M.MentorId" +
+                                                    " JOIN TBlCategory C" +
+                                                    " ON M.CategoryID = C.id" +
+                                                    " WHERE C.vchCategory = @Category" );
+
+
+            using (SqlCommand cmd = new SqlCommand(str, sqlcon))
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("@Category", SqlDbType.VarChar);
+                cmd.Parameters["@Category"].Value = Category;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        val.Add(reader.GetValue(0).ToString());
+                    }
+                }
+            }
+            return val;
+            // return new string[] { "value1", "value2" };
+        }
 
         // GET api/values/5
         public string Get(int id)
