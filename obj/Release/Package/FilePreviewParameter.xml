@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="mentor4all" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\vikas\\Documents\\Visual\ Studio\ 2017\\Projects\\MentorMenteeWebApi\\MentorMenteeWebApi\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\vikas\\Documents\\Visual\ Studio\ 2017\\Projects\\MentorMenteeWebApi\\MentorMenteeWebApi\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="mentor4all/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\vikas\\Documents\\Visual\ Studio\ 2017\\Projects\\MentorMenteeWebApi\\MentorMenteeWebApi\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+</parameters>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MentorMenteeModelStoreContainer" CdmEntityContainer="MentorMenteeEntities">
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="MentorMenteeModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCategories">
+      <EntityTypeMapping TypeName="MentorMenteeModel.TblCategory">
+        <MappingFragment StoreEntitySet="TblCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="vchCategory" ColumnName="vchCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblUsers">
+      <EntityTypeMapping TypeName="MentorMenteeModel.TblUser">
+        <MappingFragment StoreEntitySet="TblUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMentors">
+      <EntityTypeMapping TypeName="MentorMenteeModel.TblMentor">
+        <MappingFragment StoreEntitySet="TblMentor">
+          <ScalarProperty Name="MentorId" ColumnName="MentorId" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="DtSchedule" ColumnName="DtSchedule" />
+          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserSchedule" FunctionName="MentorMenteeModel.Store.GetUserSchedule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MentorMenteeModel.GetUserSchedule_Result">
+          <ScalarProperty Name="vchCategory" ColumnName="vchCategory" />
+          <ScalarProperty Name="dtScheduleDate" ColumnName="dtScheduleDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procAddNewMentor" FunctionName="MentorMenteeModel.Store.procAddNewMentor" />
+    <FunctionImportMapping FunctionImportName="procAddNewMentortoMenee" FunctionName="MentorMenteeModel.Store.procAddNewMentortoMenee" />
+    <FunctionImportMapping FunctionImportName="procAddNewUser" FunctionName="MentorMenteeModel.Store.procAddNewUser" />
+    <FunctionImportMapping FunctionImportName="procGetAssociatedMentees" FunctionName="MentorMenteeModel.Store.procGetAssociatedMentees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MentorMenteeModel.procGetAssociatedMentees_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="vchCategory" ColumnName="vchCategory" />
+          <ScalarProperty Name="dtScheduleDate" ColumnName="dtScheduleDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="procGetAssociatedMentors" FunctionName="MentorMenteeModel.Store.procGetAssociatedMentors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MentorMenteeModel.procGetAssociatedMentors_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="vchCategory" ColumnName="vchCategory" />
+          <ScalarProperty Name="dtScheduleDate" ColumnName="dtScheduleDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUserSchedule" FunctionName="MentorMenteeModel.Store.spGetUserSchedule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MentorMenteeModel.spGetUserSchedule_Result">
+          <ScalarProperty Name="vchCategory" ColumnName="vchCategory" />
+          <ScalarProperty Name="dtScheduleDate" ColumnName="dtScheduleDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

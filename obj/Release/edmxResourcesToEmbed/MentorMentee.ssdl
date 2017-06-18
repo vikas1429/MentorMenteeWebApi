@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MentorMenteeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="vchCategory" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\VIKAS\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\MENTORMENTEEWEBAPI\MENTORMENTEEWEBAPI\APP_DATA\MENTORMENTEE.MDF.dbo.TblMentor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TblMentor">
+    <Key>
+      <PropertyRef Name="MentorId" />
+    </Key>
+    <Property Name="MentorId" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="DtSchedule" Type="datetime" />
+    <Property Name="ScheduleId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\VIKAS\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\MENTORMENTEEWEBAPI\MENTORMENTEEWEBAPI\APP_DATA\MENTORMENTEE.MDF.dbo.tblSchedule' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblSchedule">
+          <Property Name="iMentorId" Type="int" />
+          <Property Name="iMenteeId" Type="int" />
+          <Property Name="iEventId" Type="int" />
+          <Property Name="dtScheduleDate" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="TblUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="20" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Function Name="GetUserSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procAddNewMentor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Category" Type="varchar" Mode="In" />
+    <Parameter Name="schedule" Type="varchar" Mode="In" />
+    <Parameter Name="mentorname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procAddNewMentortoMenee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Category" Type="varchar" Mode="In" />
+    <Parameter Name="schedule" Type="varchar" Mode="In" />
+    <Parameter Name="mentorname" Type="varchar" Mode="In" />
+    <Parameter Name="menteename" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procAddNewUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procGetAssociatedMentees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mentor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="procGetAssociatedMentors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mentee" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetUserSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MentorMenteeModelStoreContainer">
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblCategory" EntityType="Self.TblCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblUser" EntityType="Self.TblUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblMentor" EntityType="Self.TblMentor" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TblMentor].[MentorId] AS [MentorId], 
+    [TblMentor].[CategoryID] AS [CategoryID], 
+    [TblMentor].[DtSchedule] AS [DtSchedule], 
+    [TblMentor].[ScheduleId] AS [ScheduleId]
+    FROM [dbo].[TblMentor] AS [TblMentor]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

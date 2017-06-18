@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LocalDB-Web.config Connection String" description="LocalDB Connection String used in web.config by the application to access the database." defaultValue="Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|MentorMentee.mdf;Integrated Security = True; " tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\vikas\\Documents\\Visual\ Studio\ 2017\\Projects\\MentorMenteeWebApi\\MentorMenteeWebApi\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LocalDB']/@connectionString" />
+  </parameter>
+</parameters>

@@ -71,3 +71,7 @@ c:\users\vikas\documents\visual studio 2017\Projects\MentorMenteeWebApi\MentorMe
 c:\users\vikas\documents\visual studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\obj\Debug\MentorMenteeWebApi.csprojResolveAssemblyReference.cache
 c:\users\vikas\documents\visual studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\obj\Debug\MentorMenteeWebApi.dll
 c:\users\vikas\documents\visual studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\obj\Debug\MentorMenteeWebApi.pdb
+C:\Users\vikas\Documents\Visual Studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\bin\EntityFramework.dll
+C:\Users\vikas\Documents\Visual Studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\bin\EntityFramework.SqlServer.dll
+C:\Users\vikas\Documents\Visual Studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\bin\EntityFramework.xml
+C:\Users\vikas\Documents\Visual Studio 2017\Projects\MentorMenteeWebApi\MentorMenteeWebApi\bin\EntityFramework.SqlServer.xml
